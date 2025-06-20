@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Utsav Khatiwada | Project Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Utsav 💻</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="resume-btn" href="resume.pdf" download>📄 Resume</a></li>
+        <li><button id="darkToggle">🌓</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="intro-section">
+      <h1>Hi, I'm Utsav 👋</h1>
+      <p class="tagline">Turning ideas into functional tech. One project at a time.</p>
+      <p class="intro">
+        I'm Utsav — an IT graduate with hands-on experience in Raspberry Pi setups, psychology-based quizzes, and IT support deployments.
+        I build tools that solve real problems and reflect deep thinking.
+      </p>
+    </section>
+
+    <section id="projects" class="projects-section">
+      <h2>🚀 Selected Technical Projects <span class="subtitle">(As featured in my resume)</span></h2>
+
+      <div class="filter-buttons">
+        <button onclick="filterProjects('all')">All</button>
+        <button onclick="filterProjects('web')">Web Projects</button>
+        <button onclick="filterProjects('iot')">Raspberry Pi</button>
+        <button onclick="filterProjects('notion')">Notion Builds</button>
+      </div>
+
+      <div class="projects-grid">
+        <a href="https://utsavkth.github.io/Discover-Your-Love-Language/" class="card" target="_blank" data-category="web">
+          <h3>❤️ Discover Your Love Language</h3>
+          <p>Interactive self-assessment quiz built using HTML, CSS, and JavaScript. Focuses on user input flow, data handling, and UX design.</p>
+        </a>
+
+        <a href="https://utsavkth.github.io/Discover-Your-Attachment-Style/" class="card" target="_blank" data-category="web">
+          <h3>🧠 Discover Your Attachment Style</h3>
+          <p>Quiz-based app to identify attachment patterns. Uses localStorage, scoring logic, and responsive UI components.</p>
+        </a>
+
+        <a href="https://utsavkth.github.io/Discover-Your-Sexual-Temperament/" class="card" target="_blank" data-category="web">
+          <h3>🔥 Discover Your Sexual Temperament</h3>
+          <p>Browser-based tool inspired by Emily Nagoski’s SIS/SES model. Implements multi-profile logic and dynamic rendering.</p>
+        </a>
+
+        <a href="https://utsavkth.github.io/I-See-Your-True-Colour/" class="card" target="_blank" data-category="web">
+          <h3>🌈 Discover Your True Colour</h3>
+          <p>Color-based personality quiz with a custom-designed UI. Built with focus on responsiveness and playful interactivity.</p>
+        </a>
+
+        <a href="https://utsavkhatiwada.notion.site/Built-a-ad-blocker-for-Home-Network-using-a-Raspberry-PI-Zero-ed2e075dc3694556967a1250b022a490" class="card" target="_blank" data-category="iot">
+          <h3>🛡️ Raspberry Pi Ad Blocker</h3>
+          <p>Network-wide ad blocking using Pi-hole on Raspberry Pi Zero. Configured DHCP/DNS settings and tested network performance.</p>
+        </a>
+
+        <a href="https://utsavkhatiwada.notion.site/Build-a-Content-Delivery-Network-using-Raspberry-Pi-b455a417b85b4871a12b1491356e2b74" class="card" target="_blank" data-category="iot">
+          <h3>📦 Raspberry Pi CDN Media Server</h3>
+          <p>Offline streaming via LAN using OpenMediaVault, Docker, Radarr & Sonarr. Built for efficient content delivery in local networks.</p>
+        </a>
+
+        <a href="https://utsavkhatiwada.notion.site/Student-Resource-Portal-with-Notion-3eef2ebc0b2140549ca2d8936fef6333" class="card" target="_blank" data-category="notion">
+          <h3>📚 Student Resource Portal</h3>
+          <p>Notion-based academic platform designed for IT students. Centralizes notes, assignments, guides, and templates for better productivity.</p>
+        </a>
+      </div>
+
+      <div class="cta-section">
+        <a href="resume.pdf" class="resume-btn">📄 Download Full Resume</a>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <h2>📬 Get in Touch</h2>
+      <ul class="contact-links">
+        <li><a href="https://github.com/utsavkth" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/utsav-khatiwada/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://utsavkhatiwada.notion.site/Utsav-Khatiwada-015c4f65374b46b6978a91c7869031c0" target="_blank">Notion Portfolio</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Utsav Khatiwada. Built with 💻 HTML, CSS & JS.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

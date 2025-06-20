@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  header {
+    background: #222;
+    padding: 1rem 2rem;
+    color: white;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-links a,
+  .nav-links button {
+    color: white;
+    background: none;
+    border: none;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .nav-links a:hover,
+  .nav-links button:hover {
+    color: #00bcd4;
+  }
+  
+  .resume-btn {
+    background: #00bcd4;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 2rem;
+  }
+  
+  .intro-section,
+  .projects-section,
+  .contact-section {
+    margin-bottom: 3rem;
+  }
+  
+  .tagline {
+    font-style: italic;
+    margin: 0.5rem 0;
+    color: #555;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  .filter-buttons {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
+  .filter-buttons button {
+    margin: 0 0.5rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .filter-buttons button:hover {
+    background: #eee;
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .card h3 {
+    font-size: 1.15rem;
+    color: #222;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cta-section {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .contact-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+  }
+  
+  .contact-links li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-links a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: #222;
+    color: white;
+    font-size: 0.9rem;
+  }
+  
+  .dark-mode {
+    background-color: #111;
+    color: #eee;
+  }
+  
+  .dark-mode .card {
+    background: #222;
+    color: #ccc;
+  }
+  
+  .dark-mode a {
+    color: #00cfff;
+  }
+  
