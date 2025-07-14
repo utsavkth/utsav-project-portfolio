@@ -1,9 +1,10 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Utsav Khatiwada | Project Portfolio</title>
+  <title>Utsav Khatiwada – IT Graduate Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,96 +12,89 @@
     <nav class="navbar">
       <div class="logo">Utsav 💻</div>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
+        <li><a href="#intro">Home</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#why">Why I Build</a></li>
+        <li><a href="#timeline">Timeline</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a class="resume-btn" href="resume.pdf" download>📄 Resume</a></li>
+        <li><a class="resume-btn" href="resume.pdf" target="_blank">📄 Resume</a></li>
         <li><button id="darkToggle">🌓</button></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section id="home" class="intro-section">
-      <h1>Hi, I'm Utsav 👋</h1>
-      <p class="tagline">Turning ideas into functional tech. One project at a time.</p>
-      <p class="intro">
-        I'm Utsav — an IT graduate with hands-on experience in Raspberry Pi setups, psychology-based quizzes, and IT support deployments.
-        I build tools that solve real problems and reflect deep thinking.
-      </p>
-    </section>
+  <section id="intro" class="intro-section">
+    <h1>Hey, I'm Utsav Khatiwada 👋</h1>
+    <p class="tagline">IT Graduate • Builder • Psychology-Driven UX Enthusiast</p>
+    <p>Welcome to my interactive project portfolio. Here you'll find a fusion of technical experimentation, frontend creativity, Raspberry Pi builds, and emotionally intelligent tools crafted for impact and growth.</p>
+  </section>
 
-    <section id="projects" class="projects-section">
-      <h2>🚀 Selected Technical Projects <span class="subtitle">(As featured in my resume)</span></h2>
+  <section id="projects">
+    <h2>Featured Technical Projects</h2>
+    <div class="filter-buttons">
+      <button onclick="filterProjects('all')">All</button>
+      <button onclick="filterProjects('web')">Web</button>
+      <button onclick="filterProjects('psychology')">Psychology</button>
+      <button onclick="filterProjects('iot')">IoT</button>
+      <button onclick="filterProjects('infra')">Infra</button>
+      <button onclick="filterProjects('notion')">Productivity</button>
+      <input type="text" id="searchBox" placeholder="Search projects..." />
+    </div>
+    <div id="projectGrid" class="projects-grid"></div>
+  </section>
 
-      <div class="filter-buttons">
-        <button onclick="filterProjects('all')">All</button>
-        <button onclick="filterProjects('web')">Web Projects</button>
-        <button onclick="filterProjects('iot')">Raspberry Pi</button>
-        <button onclick="filterProjects('notion')">Notion Builds</button>
-      </div>
+  <section id="why">
+    <h2>Why I Build 🧭</h2>
+    <p>I believe technology is not just functional — it’s emotional. My projects aim to spark introspection, solve real-world issues, and explore the intersection of psychology and tech. From HL7 hospital data to emotional profiling quizzes, I bring empathy to engineering.</p>
+  </section>
 
-      <div class="projects-grid">
-        <a href="https://utsavkth.github.io/Discover-Your-Love-Language/" class="card" target="_blank" data-category="web">
-          <h3>❤️ Discover Your Love Language</h3>
-          <p>Interactive self-assessment quiz built using HTML, CSS, and JavaScript. Focuses on user input flow, data handling, and UX design.</p>
-        </a>
+ <section id="timeline" data-aos="fade-up">
+  <h2>📍 Career Timeline</h2>
+  <div class="timeline-container">
+    <div class="timeline-item">
+      <span class="timeline-date">2020</span>
+      <p>🎓 Diploma of IT<br><em>First exposure to systems and basic programming foundations.</em></p>
+    </div>
 
-        <a href="https://utsavkth.github.io/Discover-Your-Attachment-Style/" class="card" target="_blank" data-category="web">
-          <h3>🧠 Discover Your Attachment Style</h3>
-          <p>Quiz-based app to identify attachment patterns. Uses localStorage, scoring logic, and responsive UI components.</p>
-        </a>
+    <div class="timeline-item">
+      <span class="timeline-date">2021</span>
+      <p>🎓 Advanced Diploma of Network Security<br>🛡️ Built a Raspberry Pi Ad Blocker project — self-initiated deep dive into networking and DNS filtering.</p>
+    </div>
 
-        <a href="https://utsavkth.github.io/Discover-Your-Sexual-Temperament/" class="card" target="_blank" data-category="web">
-          <h3>🔥 Discover Your Sexual Temperament</h3>
-          <p>Browser-based tool inspired by Emily Nagoski’s SIS/SES model. Implements multi-profile logic and dynamic rendering.</p>
-        </a>
+    <div class="timeline-item">
+      <span class="timeline-date">2023</span>
+      <p>🎓 Bachelor of IT (Distinction) – Victoria University<br>📦 Final Year Project: Raspberry Pi CDN Media Server — content delivery across LAN using Docker and media services.</p>
+    </div>
 
-        <a href="https://utsavkth.github.io/I-See-Your-True-Colour/" class="card" target="_blank" data-category="web">
-          <h3>🌈 Discover Your True Colour</h3>
-          <p>Color-based personality quiz with a custom-designed UI. Built with focus on responsiveness and playful interactivity.</p>
-        </a>
+    <div class="timeline-item">
+      <span class="timeline-date">2023</span>
+      <p>📚 Built the Student Resource Hub on Notion — designed for peers to track units, notes, and productivity. Demonstrated platform thinking and UX design.</p>
+    </div>
 
-        <a href="https://utsavkhatiwada.notion.site/Built-a-ad-blocker-for-Home-Network-using-a-Raspberry-PI-Zero-ed2e075dc3694556967a1250b022a490" class="card" target="_blank" data-category="iot">
-          <h3>🛡️ Raspberry Pi Ad Blocker</h3>
-          <p>Network-wide ad blocking using Pi-hole on Raspberry Pi Zero. Configured DHCP/DNS settings and tested network performance.</p>
-        </a>
+    <div class="timeline-item">
+      <span class="timeline-date">2025</span>
+      <p>🛠️ Internship at Interfuse Technologies<br>🔬 Developed a Digital Pathology Middleware prototype using Raspberry Pi and shell scripting — simulated secure imaging workflows between lab devices and EMR systems.</p>
+    </div>
 
-        <a href="https://utsavkhatiwada.notion.site/Build-a-Content-Delivery-Network-using-Raspberry-Pi-b455a417b85b4871a12b1491356e2b74" class="card" target="_blank" data-category="iot">
-          <h3>📦 Raspberry Pi CDN Media Server</h3>
-          <p>Offline streaming via LAN using OpenMediaVault, Docker, Radarr & Sonarr. Built for efficient content delivery in local networks.</p>
-        </a>
+    <div class="timeline-item">
+      <span class="timeline-date">2024 – 2025</span>
+      <p>🌐 Designed and launched 5+ interactive web tools blending psychology and UI/UX logic:<br>🧠 Includes Love Language Explorer, Attachment Style Profiler, Temperament Insight Tool, and Colour Preference Quiz.</p>
+    </div>
+  </div>
+</section>
 
-        <a href="https://utsavkhatiwada.notion.site/Student-Resource-Portal-with-Notion-3eef2ebc0b2140549ca2d8936fef6333" class="card" target="_blank" data-category="notion">
-          <h3>📚 Student Resource Portal</h3>
-          <p>Notion-based academic platform designed for IT students. Centralizes notes, assignments, guides, and templates for better productivity.</p>
-        </a>
 
-        <a href="https://utsavkhatiwada.notion.site/Digital-Pathology-Middleware-Project-Intro-Workflow-1c0144bf7aa38082b349ffb48297bc8a" class="card" target="_blank" data-category="iot">
-          <h3>🧬 Digital Pathology Middleware Project</h3>
-          <p>Designed a middleware solution to streamline pathology data transfers across legacy systems. Integrated Raspberry Pi, HL7, and networked devices in medical environments.</p>
-        </a>
-
-      </div>
-
-      <div class="cta-section">
-        <a href="resume.pdf" class="resume-btn">📄 Download Full Resume</a>
-      </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-      <h2>📬 Get in Touch</h2>
-      <ul class="contact-links">
-        <li><a href="https://github.com/utsavkth" target="_blank">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/utsav-khatiwada/" target="_blank">LinkedIn</a></li>
-        <li><a href="https://utsavkhatiwada.notion.site/Utsav-Khatiwada-015c4f65374b46b6978a91c7869031c0" target="_blank">Notion Portfolio</a></li>
-      </ul>
-    </section>
-  </main>
+  <section id="contact" class="cta-section">
+    <h2>Let’s Connect 🤝</h2>
+    <p>I’m open to roles in IT support, frontend development, systems integration, or hybrid positions combining tech with emotional intelligence.</p>
+    <a class="resume-btn" href="resume.pdf" target="_blank">📄 View My Resume</a>
+    <p>Or email me: <a href="mailto:utsavkth@gmail.com">utsavkth@gmail.com</a></p>
+  </section>
 
   <footer>
-    <p>© 2025 Utsav Khatiwada. Built with 💻 HTML, CSS & JS.</p>
+    <p>&copy; 2025 Utsav Khatiwada. Built with heart and code.</p>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
