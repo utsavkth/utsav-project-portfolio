@@ -33,21 +33,21 @@ const projects = [
   {
     title: "🧰 Student Resource Hub",
     emoji: "📚",
-    url: "https://utsavkhatiwada.notion.site/Utsav-Khatiwada-Student-Study-Dashboard-35432cd1c734420aa06f2d78569d0cce",
+    url: "https://utsavkhatiwada.notion.site/Student-Resource-Portal-with-Notion-3eef2ebc0b2140549ca2d8936fef6333?pvs=143",
     category: ["notion"],
     desc: "Notion-based academic productivity dashboard. Includes notes, templates, and tech study workflows."
   },
   {
     title: "🛡️ Raspberry Pi Ad Blocker",
     emoji: "🛡️",
-    url: "https://utsavkhatiwada.notion.site/Pi-hole-Ad-Blocker-Setup-Guide-bf8ab264ad274b0a92e4cb9b16c4077b",
+    url: "https://utsavkhatiwada.notion.site/Built-a-ad-blocker-for-Home-Network-using-a-Raspberry-PI-Zero-ed2e075dc3694556967a1250b022a490?pvs=143",
     category: ["iot"],
     desc: "Network-wide ad blocking system using Pi-hole + Raspberry Pi. Benchmarked performance and LAN privacy."
   },
   {
     title: "📦 CDN Media Server",
     emoji: "📦",
-    url: "https://utsavkhatiwada.notion.site/CDN-Media-Server-on-Raspberry-Pi-b5be6a5b0d504af4b7192d23f1cb8c0f",
+    url: "https://utsavkhatiwada.notion.site/Build-a-Content-Delivery-Network-using-Raspberry-Pi-b455a417b85b4871a12b1491356e2b74?pvs=143",
     category: ["iot"],
     desc: "Final year project — Dockerized media CDN on Raspberry Pi for offline streaming using LAN tools."
   },
