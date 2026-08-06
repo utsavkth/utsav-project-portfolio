@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Utsav Khatiwada, Projects">
+    <title>Projects | Utsav Khatiwada</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page">
+        <div id="circuit" class="circuit-layer" data-seed="4242" data-height="2900" data-count="26"></div>
+
+        <nav>
+            <a href="index.html" class="nav-brand">UK · REV 2.7</a>
+            <div class="nav-spacer"></div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">← J0·HOME</a>
+                <a href="index.html#contact" class="nav-link">J6·CONTACT</a>
+            </div>
+        </nav>
+
+        <div class="container projects-main">
+            <div class="page-cmd"><span class="user">utsav@homelab:~$</span> lspci -v --all-projects</div>
+            <h1 class="page-title">FULL BOARD</h1>
+            <div class="page-sub">EVERY COMPONENT MOUNTED ON THE HOMELAB MOTHERBOARD<span class="cursor"></span></div>
+
+            <div class="grid2">
+
+                <!-- CPU, Khatiwada POS SaaS -->
+                <a id="khatiwadapos" data-reveal="1" href="khatiwada-pos.html" class="board-card lg">
+                    <span class="pins-h top" style="left: 14px; right: 14px;"></span>
+                    <span class="pins-h bottom" style="left: 14px; right: 14px;"></span>
+                    <span class="pins-v left" style="top: 18px; bottom: 18px;"></span>
+                    <span class="pins-v right" style="top: 18px; bottom: 18px;"></span>
+                    <div class="chip-head">
+                        <div class="chip-label">U1 · CPU, MAIN PROCESSOR</div>
+                        <div class="chip-status">STATUS: LIVE ●</div>
+                    </div>
+                    <div class="chip-title">Khatiwada POS SaaS</div>
+                    <div class="chip-desc">Started as one browser based point of sale for my family's grocery store in Kathmandu, running on a Raspberry Pi in Sydney. Rebuilt this year into a multi tenant SaaS product: its own cloud VPS, isolated Docker containers per customer, a signed token handoff login flow, and a master dashboard for onboarding new shops.</div>
+                    <div class="chip-meta">CORE: FLASK · SQLITE · DOCKER · ORACLE CLOUD VPS · CADDY &nbsp;&nbsp;→ OPEN COMPONENT PAGE</div>
+                </a>
+
+                <!-- GPU, Zebra -->
+                <a id="zebra" data-reveal="1" href="zebra-tc53.html" class="board-card lg" style="padding-bottom: 40px;">
+                    <span class="pins-h bottom" style="left: 14px; right: auto; width: 55%; height: 7px;"></span>
+                    <span class="pins-h bottom" style="left: auto; right: 14px; width: 20%; height: 7px;"></span>
+                    <span class="ring" style="top: 24px; right: 22px; width: 38px; height: 38px;"></span>
+                    <span class="ring inner" style="top: 35px; right: 33px; width: 16px; height: 16px;"></span>
+                    <div class="chip-label">U2 · GPU, RENDER UNIT</div>
+                    <div class="chip-title">Zebra TC53 Handheld Cashier</div>
+                    <div class="chip-desc">A second cashier front end for the same store, purpose built for a Zebra TC53 enterprise handheld scanner. Keyboard wedge barcode capture, no camera focus delay, an on device Fonepay QR payment step, and a live shared database with the main POS so both tills stay in sync.</div>
+                    <div class="chip-meta">RENDER: ZEBRA TC53 · DATAWEDGE · FONEPAY QR &nbsp;&nbsp;→ OPEN COMPONENT PAGE</div>
+                </a>
+
+                <!-- GPU2, Khatiwada Store website -->
+                <a id="khatiwadastore" data-reveal="1" href="khatiwada-store.html" class="board-card lg" style="padding-bottom: 40px;">
+                    <span class="pins-h bottom" style="left: 14px; right: auto; width: 34%; height: 7px;"></span>
+                    <span class="pins-h bottom" style="left: 44%; right: 14px; height: 7px;"></span>
+                    <div class="pad-row" style="gap: 7px; margin-bottom: 16px;">
+                        <span class="pad" style="width: 24px; height: 13px;"></span>
+                        <span class="pad" style="width: 24px; height: 13px;"></span>
+                        <span class="pad" style="width: 24px; height: 13px;"></span>
+                        <span class="pad" style="width: 24px; height: 13px;"></span>
+                    </div>
+                    <div class="chip-label">U3 · GPU2, DISPLAY OUTPUT</div>
+                    <div class="chip-title">Khatiwada Store Website</div>
+                    <div class="chip-desc">A separate, bilingual marketing site for the physical shop, distinct product from the POS but sharing the same VPS. Seven product categories with real photography, its own logo and favicon, and its own domain approved through Nepal's Mercantile registrar after a rejected first attempt and a same day resubmission.</div>
+                    <div class="chip-meta">STACK: STATIC HTML/CSS/JS · NGINX · MULTI ARCH CONTAINER &nbsp;&nbsp;→ OPEN COMPONENT PAGE</div>
+                </a>
+
+                <!-- RAM, Home Server -->
+                <a id="homeserver" data-reveal="1" href="home-server.html" class="board-card lg" style="padding-left: 36px;">
+                    <span class="pins-v left" style="top: 18px; bottom: 42%; width: 6px;"></span>
+                    <span class="pins-v left" style="top: 66%; bottom: 18px; width: 6px;"></span>
+                    <div class="pad-row" style="gap: 7px; margin-bottom: 16px;">
+                        <span class="pad" style="width: 32px; height: 17px;"></span>
+                        <span class="pad" style="width: 32px; height: 17px;"></span>
+                    </div>
+                    <div class="chip-label">U4 · RAM, HOME SERVER</div>
+                    <div class="chip-title">Home Server, Pi 4 Homelab</div>
+                    <div class="chip-desc">A Raspberry Pi 4 that started as a university side project years ago, sat dormant for a while, then got a ground up rebuild this year. Now runs a full Docker media stack, Pi-hole filtering 2.4M+ domains for the whole network, a Caddy reverse proxy with clean local domains, and a Telegram monitoring suite of 14 scripts across two bots. Also hosts the Nepal POS in production.</div>
+                    <div class="chip-meta">STACK: OMV 8 · DOCKER · PI-HOLE V6 · CADDY · TAILSCALE &nbsp;&nbsp;→ OPEN COMPONENT PAGE</div>
+                </a>
+
+                <!-- Watchdog -->
+                <a id="watchdog" data-reveal="1" href="watchdog.html" class="board-card lg" style="padding-bottom: 40px;">
+                    <span class="pins-h bottom" style="left: 14px; right: 14px; height: 7px; background: repeating-linear-gradient(90deg, var(--gold) 0px, var(--gold) 8px, transparent 8px, transparent 14px);"></span>
+                    <div class="chip-label">U5 · BMC, WATCHDOG</div>
+                    <div class="chip-title">Homelab Watchdog</div>
+                    <div class="chip-desc">A second, independent Raspberry Pi Zero W with one job: watch the home server and say something if it goes quiet. Pings it every 10 seconds over Tailscale, alerts after 3 missed replies, and deliberately stays on its own separate network path so it can still reach the outside world if the main Pi goes down.</div>
+                    <div class="chip-meta">ROLE: INDEPENDENT UPTIME MONITOR · TAILSCALE · TELEGRAM ALERTS &nbsp;&nbsp;→ OPEN COMPONENT PAGE</div>
+                </a>
+
+                <!-- Local AI server -->
+                <a id="aiserver" data-reveal="1" href="ai-server.html" class="board-card lg" style="padding-bottom: 40px;">
+                    <span class="ring" style="top: 24px; right: 22px; width: 38px; height: 38px;"></span>
+                    <span class="ring inner" style="top: 35px; right: 33px; width: 16px; height: 16px;"></span>
+                    <div class="chip-label">U6 · NPU, INFERENCE UNIT</div>
+                    <div class="chip-title">Local AI Server</div>
+                    <div class="chip-desc">A Mac mini M4 set up as an always on local AI server. Ollama and Open WebUI on an external NVMe SSD, four local models covering everyday chat, coding and multimodal reasoning, plus a Google Gemini connection for cloud tasks, all reachable from any device on the home network or Tailscale without their traffic ever leaving the house for the local models.</div>
+                    <div class="chip-meta">STACK: OLLAMA · OPEN WEBUI · CADDY · GEMINI API &nbsp;&nbsp;→ OPEN COMPONENT PAGE</div>
+                </a>
+
+                <!-- NIC, Student portal -->
+                <!-- PSU, True Colour -->
+                <a id="truecolour" data-reveal="1" href="true-colour.html" class="board-card lg" style="padding-bottom: 40px;">
+                    <span class="pins-h bottom" style="left: 14px; right: 14px; height: 7px; background: repeating-linear-gradient(90deg, var(--gold) 0px, var(--gold) 12px, transparent 12px, transparent 20px);"></span>
+                    <div class="chip-label">U7 · PSU, HEART OF THE BUILD</div>
+                    <div class="chip-title">I See Your True Colour</div>
+                    <div class="chip-desc">A scenario based Red/Yellow/Green/Blue personality quiz, inspired by Surrounded by Idiots, with a Soul Kundali result chart, an SVG diamond styled after a North Indian astrology chart, mapping twelve trait lines onto twelve houses.</div>
+                    <div class="chip-meta">SERIES 1 OF 4 · REBUILT 2026-08-06 &nbsp;&nbsp;→ OPEN COMPONENT PAGE</div>
+                </a>
+
+                <!-- PSU2, Love Language -->
+                <a id="lovelanguage" data-reveal="1" href="love-language.html" class="board-card lg" style="padding-bottom: 40px;">
+                    <div class="chip-label">U8 · PSU2, LONGEST BUILD IN THE SERIES</div>
+                    <div class="chip-title">Love Language Quiz</div>
+                    <div class="chip-desc">A quiz based on Dr. Gary Chapman's 5 Love Languages framework. First built in October 2024, then substantially reworked and relaunched in April 2025 alongside the rest of the series.</div>
+                    <div class="chip-meta">SERIES 2 OF 4 · BUILT OCT 2024 TO APR 2025 &nbsp;&nbsp;→ OPEN COMPONENT PAGE</div>
+                </a>
+
+                <!-- PSU3, Attachment Style -->
+                <a id="attachmentstyle" data-reveal="1" href="attachment-style.html" class="board-card lg" style="padding-bottom: 40px;">
+                    <div class="chip-label">U9 · PSU3, REBUILT MID STREAM</div>
+                    <div class="chip-title">Attachment Style Quiz</div>
+                    <div class="chip-desc">A quiz built around attachment theory, profiling secure, anxious or avoidant attachment, with its own theory page explaining the framework behind the result.</div>
+                    <div class="chip-meta">SERIES 3 OF 4 · BUILT APR 2025 &nbsp;&nbsp;→ OPEN COMPONENT PAGE</div>
+                </a>
+
+                <!-- PSU4, Temperament -->
+                <a id="temperament" data-reveal="1" href="temperament.html" class="board-card lg" style="padding-bottom: 40px;">
+                    <div class="chip-label">U10 · PSU4, FASTEST BUILD IN THE SERIES</div>
+                    <div class="chip-title">Temperament Quiz</div>
+                    <div class="chip-desc">A quiz built around the Dual Control Model, the SIS/SES framework popularised by Emily Nagoski's Come As You Are, taking a science informed read on temperament rather than a generic personality label.</div>
+                    <div class="chip-meta">SERIES 4 OF 4 · BUILT APR 2025 &nbsp;&nbsp;→ OPEN COMPONENT PAGE</div>
+                </a>
+
+                <!-- NIC, Student portal -->
+                <a id="studentportal" data-reveal="1" href="student-portal.html" class="board-card lg" style="padding-bottom: 40px;">
+                    <div class="chip-label">U11 · NIC, I/O PORT</div>
+                    <div class="chip-title">Student Resource Portal</div>
+                    <div class="chip-desc">A Notion based portal built during my degree for Victoria University students: per unit dashboards, notes, deadlines and templates in one workspace, built around VU's block model where one subject runs intensively at a time.</div>
+                    <div class="chip-meta">LINK: NOTION · PRODUCTIVITY &nbsp;&nbsp;→ OPEN COMPONENT PAGE</div>
+                </a>
+            </div>
+        </div>
+
+        <footer>© 2026 UTSAV KHATIWADA, SERVED FROM A RASPBERRY PI HOMELAB</footer>
+
+        <div class="scanlines"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

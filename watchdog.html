@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Homelab watchdog, an independent Raspberry Pi Zero W uptime monitor">
+    <title>Homelab Watchdog | Utsav Khatiwada</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pos-page">
+    <div class="pos-wrap">
+        <div class="pos-term">
+
+            <div class="term-bar">
+                <span class="term-dot"></span>
+                <span class="term-dot"></span>
+                <span class="term-dot lit"></span>
+                <span class="term-title">utsav@homelab: ~/homelab/watchdog, bash</span>
+                <div class="spacer"></div>
+                <a href="projects.html">[× back to board]</a>
+            </div>
+
+            <div class="pos-body">
+                <div class="pos-cmd">
+                    <span class="user">utsav@homelab:~$</span>
+                    <span class="typing">cd ~/homelab/watchdog</span>
+                </div>
+
+                <h1 class="pos-title">HOMELAB WATCHDOG</h1>
+                <p class="pos-sub">&gt; U5 · BMC, WHO WATCHES THE HOME SERVER<span class="cursor"></span></p>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/homelab/watchdog$</span> cat README.md</div>
+                <p class="pos-text">
+                    Monitoring that lives on the same box it is monitoring is not real monitoring. If the home server
+                    goes down, its own alerting goes down with it. So there is a second, tiny Raspberry Pi Zero W
+                    whose entire job is watching the home server from the outside and staying quiet unless something
+                    is actually wrong.
+                </p>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/homelab/watchdog$</span> ./features --list</div>
+                <div class="pos-features">
+                    <span>▸ Pings the home server every 10 seconds</span>
+                    <span>▸ Alerts after 3 consecutive missed replies, not just one blip</span>
+                    <span>▸ Own Tailscale identity, resolves public DNS independently</span>
+                    <span>▸ Deliberately kept dumb and separate, one job, done reliably</span>
+                </div>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/homelab/watchdog$</span> docker inspect watchdog --format stack</div>
+                <div class="pos-stack">
+                    <span class="key">HARDWARE</span><span class="val">Raspberry Pi Zero W</span>
+                    <span class="key">NETWORK</span><span class="val">Tailscale, configured not to depend on the home server's own DNS</span>
+                    <span class="key">CHECK</span><span class="val">10 second ping interval, alert threshold of 3 failures</span>
+                    <span class="key">DELIVERY</span><span class="val">Telegram, same alerting channel as the home server's own bots</span>
+                </div>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/homelab/watchdog$</span> git log --reverse --milestones</div>
+                <div class="pos-log">
+                    <span class="d">2026-06-16</span><span class="t">Built alongside the home server's automatic update rollout, so a bad update always has an independent second opinion watching it</span>
+                    <span class="d">2026-06-18</span><span class="t">Confirmed alerting after real, deliberate downtime tests, on its own network path so it does not go blind if Pi-hole itself is what fails</span>
+                    <span class="d">ONGOING</span><span class="t">Quietly running, no news is genuinely good news here</span>
+                </div>
+
+                <div class="pos-buttons">
+                    <a href="ai-server.html" class="btn primary">[ NEXT: LOCAL AI SERVER → ]</a>
+                    <a href="projects.html" class="btn ghost">[ ← ALL PROJECTS ]</a>
+                    <a href="index.html" class="btn ghost">[ ~ HOME ]</a>
+                </div>
+
+                <div class="pos-cmd pos-end"><span class="user">utsav@homelab:~/homelab/watchdog$</span> <span class="cursor"></span></div>
+            </div>
+
+            <div class="pos-scanlines"></div>
+        </div>
+    </div>
+</body>
+</html>

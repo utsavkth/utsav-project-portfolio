@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Home server, a Raspberry Pi 4 homelab running media, DNS and monitoring">
+    <title>Home Server | Utsav Khatiwada</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pos-page">
+    <div class="pos-wrap">
+        <div class="pos-term">
+
+            <div class="term-bar">
+                <span class="term-dot"></span>
+                <span class="term-dot"></span>
+                <span class="term-dot lit"></span>
+                <span class="term-title">utsav@homelab: ~/homelab, bash</span>
+                <div class="spacer"></div>
+                <a href="projects.html">[× back to board]</a>
+            </div>
+
+            <div class="pos-body">
+                <div class="pos-cmd">
+                    <span class="user">utsav@homelab:~$</span>
+                    <span class="typing">cd ~/homelab</span>
+                </div>
+
+                <h1 class="pos-title">HOME SERVER</h1>
+                <p class="pos-sub">&gt; U4 · RAM, THE HOMELAB THAT POWERS EVERYTHING ELSE<span class="cursor"></span></p>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/homelab$</span> cat README.md</div>
+                <p class="pos-text">
+                    A Raspberry Pi 4 that first came alive as a university side project years ago, then sat dormant
+                    for a while. In June 2026 I revived it with a ground up rebuild: a fresh install, a proper NAS,
+                    a full Docker media stack, network wide DNS filtering, a clean reverse proxy, and a monitoring
+                    setup that actually tells me when something breaks instead of me finding out the hard way. It now
+                    quietly hosts the Nepal POS in production too.
+                </p>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/homelab$</span> ./features --list</div>
+                <div class="pos-features">
+                    <span>▸ OpenMediaVault NAS, network shares for the family</span>
+                    <span>▸ Full Docker media stack, Jellyfin plus the supporting arr apps</span>
+                    <span>▸ Pi-hole v6, 2.4M+ domains filtered for every device</span>
+                    <span>▸ Caddy reverse proxy, clean .home domains with no port numbers</span>
+                    <span>▸ Telegram monitoring, 14 scripts across two bots</span>
+                    <span>▸ Watchtower automatic Docker updates every night</span>
+                    <span>▸ Zero ports exposed to the internet, everything over Tailscale</span>
+                </div>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/homelab$</span> docker inspect homeserver --format stack</div>
+                <div class="pos-stack">
+                    <span class="key">HARDWARE</span><span class="val">Raspberry Pi 4, 8GB, external USB storage</span>
+                    <span class="key">OS</span><span class="val">Raspberry Pi OS Lite 64 bit, OpenMediaVault 8.1.1</span>
+                    <span class="key">MEDIA</span><span class="val">Jellyfin, qBittorrent, Radarr, Sonarr, Prowlarr, Bazarr, Jellyseerr</span>
+                    <span class="key">NETWORK</span><span class="val">Pi-hole v6, Caddy, Tailscale mesh VPN</span>
+                    <span class="key">MONITORING</span><span class="val">Two Telegram bots, alerts plus nightly and weekly reports</span>
+                </div>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/homelab$</span> git log --reverse --milestones</div>
+                <div class="pos-log">
+                    <span class="d">EARLIER ERA</span><span class="t">First build during university, OpenMediaVault 4, early Jellyfin and media automation, then left mostly dormant</span>
+                    <span class="d">2026-06-01</span><span class="t">Full rebuild begins. Fresh OS, OpenMediaVault 8, new NAS storage and network shares</span>
+                    <span class="d">2026-06-04</span><span class="t">Full Docker media stack deployed, hardlink and drive reliability issues solved properly</span>
+                    <span class="d">2026-06-10</span><span class="t">Pi-hole v6 deployed in Docker, set as global DNS across the whole Tailscale network</span>
+                    <span class="d">2026-06-12</span><span class="t">Caddy reverse proxy live, every service on a clean .home domain, unified dashboard added</span>
+                    <span class="d">2026-06-14</span><span class="t">Full monitoring suite built, 14 scripts across two Telegram bots for alerts and reports</span>
+                    <span class="d">2026-06-16</span><span class="t">Watchtower automatic updates added, plus a second independent watchdog device (see next component)</span>
+                    <span class="d">2026-07-03</span><span class="t">Promoted to production, now hosts the Nepal Grocery POS over HTTPS for the shop in Kathmandu</span>
+                </div>
+
+                <div class="pos-buttons">
+                    <a href="watchdog.html" class="btn primary">[ NEXT: HOMELAB WATCHDOG → ]</a>
+                    <a href="projects.html" class="btn ghost">[ ← ALL PROJECTS ]</a>
+                    <a href="index.html" class="btn ghost">[ ~ HOME ]</a>
+                </div>
+
+                <div class="pos-cmd pos-end"><span class="user">utsav@homelab:~/homelab$</span> <span class="cursor"></span></div>
+            </div>
+
+            <div class="pos-scanlines"></div>
+        </div>
+    </div>
+</body>
+</html>

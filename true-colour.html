@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I See Your True Colour, a behavioural colour quiz with a kundali styled result chart">
+    <title>I See Your True Colour | Utsav Khatiwada</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pos-page">
+    <div class="pos-wrap">
+        <div class="pos-term">
+
+            <div class="term-bar">
+                <span class="term-dot"></span>
+                <span class="term-dot"></span>
+                <span class="term-dot lit"></span>
+                <span class="term-title">utsav@homelab: ~/projects/true-colour, bash</span>
+                <div class="spacer"></div>
+                <a href="projects.html">[× back to board]</a>
+            </div>
+
+            <div class="pos-body">
+                <div class="pos-cmd">
+                    <span class="user">utsav@homelab:~$</span>
+                    <span class="typing">cd ~/projects/true-colour</span>
+                </div>
+
+                <h1 class="pos-title">TRUE COLOUR</h1>
+                <p class="pos-sub">&gt; U7 · PSU, ONE OF FOUR IN THE PSYCHOLOGY QUIZ SERIES<span class="cursor"></span></p>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/true-colour$</span> cat README.md</div>
+                <p class="pos-text">
+                    A scenario based personality quiz built around four colour coded behavioural styles, Red, Yellow,
+                    Green and Blue, inspired by Thomas Erikson's Surrounded by Idiots. Twelve real life scenario
+                    questions instead of abstract trait statements, each answer secretly mapping to a colour. The
+                    result page reveals the dominant one with a personalised strengths, challenges, growth path and
+                    blessing writeup, plus a Soul Kundali, a diamond shaped chart styled after a North Indian
+                    astrology kundali that maps twelve personality trait lines onto twelve houses. This kundali idea
+                    is a long running personal one of mine, not mapping stars but mapping instincts.
+                </p>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/true-colour$</span> ./features --list</div>
+                <div class="pos-features">
+                    <span>▸ 12 real life scenario questions, no abstract trait statements</span>
+                    <span>▸ Confetti burst and personalised story on the result reveal</span>
+                    <span>▸ SVG Soul Kundali chart, 12 houses tiling one diamond square</span>
+                    <span>▸ Each house sized to its real geometry so text never spills over</span>
+                    <span>▸ Share the result as a downloaded image via html2canvas</span>
+                    <span>▸ Dedicated deep dive page per colour, plus a compare all page</span>
+                </div>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/true-colour$</span> git remote -v</div>
+                <div class="pos-stack">
+                    <span class="key">LIVE SITE</span><span class="val"><a href="https://utsavkth.github.io/I-See-Your-True-Colour/index.html" target="_blank">utsavkth.github.io/I-See-Your-True-Colour</a></span>
+                    <span class="key">STACK</span><span class="val">Static HTML5, CSS3, vanilla JavaScript, no build step</span>
+                    <span class="key">EXTRAS</span><span class="val">AOS scroll animation, html2canvas, canvas confetti, via CDN</span>
+                </div>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/true-colour$</span> git log --reverse --milestones</div>
+                <div class="pos-log">
+                    <span class="d">2025-04-27</span><span class="t">Built and launched. Quiz logic, result page, hero image, colour banners, and the first pass at a kundali result visual using a CSS trick that never actually rendered right</span>
+                    <span class="d">2025-04-28</span><span class="t">Contact, homepage and about pages rewritten to match a more personal, emotional voice. Share result as image added, nav and footer polished</span>
+                    <span class="d">2026-08-06</span><span class="t">Soul Kundali rebuilt from scratch as a proper SVG chart, geometry aware so text fits every house correctly. AOS load failure fallback added across all 12 pages. Every dash removed from the site's copy</span>
+                    <span class="d">PLANNED</span><span class="t">Link the result to a secondary Love Language result on the same page, an idea noted since the original build</span>
+                </div>
+
+                <div class="pos-buttons">
+                    <a href="love-language.html" class="btn primary">[ NEXT: LOVE LANGUAGE → ]</a>
+                    <a href="projects.html" class="btn ghost">[ ← ALL PROJECTS ]</a>
+                    <a href="index.html" class="btn ghost">[ ~ HOME ]</a>
+                </div>
+
+                <div class="pos-cmd pos-end"><span class="user">utsav@homelab:~/projects/true-colour$</span> <span class="cursor"></span></div>
+            </div>
+
+            <div class="pos-scanlines"></div>
+        </div>
+    </div>
+</body>
+</html>

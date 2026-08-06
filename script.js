@@ -1,112 +1,191 @@
-// script.js - Portfolio Filtering & Modal
+/* ============================================================
+   Utsav Khatiwada, portfolio "circuit board" theme
+   Shared behaviour: circuit background, boot overlay, matrix
+   rain, scroll progress, reveal-on-scroll.
+   Each effect only runs when its element exists on the page.
+   ============================================================ */
 
-// Project data
-const projects = [
-  {
-    title: "❤️ Love Language Explorer",
-    emoji: "❤️",
-    url: "https://utsavkth.github.io/Discover-Your-Love-Language/",
-    category: ["web", "psychology"],
-    desc: "Interactive web app to discover primary love languages. Built with vanilla JS and custom UI/UX logic."
-  },
-  {
-    title: "🧠 Attachment Style Profiler",
-    emoji: "🧠",
-    url: "https://utsavkth.github.io/Discover-Your-Attachment-Style/",
-    category: ["web", "psychology"],
-    desc: "Browser-based tool to assess attachment styles using emotional pattern recognition and dynamic result rendering."
-  },
-  {
-    title: "🔥 Temperament Insight Tool",
-    emoji: "🔥",
-    url: "https://utsavkth.github.io/Discover-Your-Sexual-Temperament/",
-    category: ["web", "psychology"],
-    desc: "SIS/SES-based temperament quiz — blending psychological theory with mobile-friendly design and logic."
-  },
-  {
-    title: "🎨 True Colour Personality Quiz",
-    emoji: "🎨",
-    url: "https://utsavkth.github.io/I-See-Your-True-Colour/",
-    category: ["web", "psychology"],
-    desc: "Color-based preference tool with chart visualization and scoring logic — built with Tailwind + Chart.js."
-  },
-  {
-    title: "🧰 Student Resource Hub",
-    emoji: "📚",
-    url: "https://utsavkhatiwada.notion.site/Student-Resource-Portal-with-Notion-3eef2ebc0b2140549ca2d8936fef6333?pvs=143",
-    category: ["notion"],
-    desc: "Notion-based academic productivity dashboard. Includes notes, templates, and tech study workflows."
-  },
-  {
-    title: "🛡️ Raspberry Pi Ad Blocker",
-    emoji: "🛡️",
-    url: "https://utsavkhatiwada.notion.site/Built-a-ad-blocker-for-Home-Network-using-a-Raspberry-PI-Zero-ed2e075dc3694556967a1250b022a490?pvs=143",
-    category: ["iot"],
-    desc: "Network-wide ad blocking system using Pi-hole + Raspberry Pi. Benchmarked performance and LAN privacy."
-  },
-  {
-    title: "📦 CDN Media Server",
-    emoji: "📦",
-    url: "https://utsavkhatiwada.notion.site/Build-a-Content-Delivery-Network-using-Raspberry-Pi-b455a417b85b4871a12b1491356e2b74?pvs=143",
-    category: ["iot"],
-    desc: "Final year project — Dockerized media CDN on Raspberry Pi for offline streaming using LAN tools."
-  },
-  {
-    title: "🔬 Pathology Middleware",
-    emoji: "🔬",
-    url: "https://utsavkhatiwada.notion.site/Digital-Pathology-Middleware-Project-Intro-Workflow-1c0144bf7aa38082b349ffb48297bc8a",
-    category: ["iot", "infra"],
-    desc: "Developed during internship at Interfuse — HL7 simulation with Raspberry Pi & shell scripting for radiology devices."
-  }
-];
+(function () {
+    'use strict';
 
-// DOM references
-const projectGrid = document.getElementById("projectGrid");
-const searchBox = document.getElementById("searchBox");
+    /* ---------- animated circuit-board background ----------
+       Generates seeded PCB traces as an SVG with light pulses
+       travelling along them. Config comes from data attributes
+       on the #circuit element (seed / height / count).       */
 
-// Render all projects
-function renderProjects(filter = "all") {
-  const term = searchBox.value.toLowerCase();
-  projectGrid.innerHTML = "";
+    function makeTraces(seed, w, h, n) {
+        var s = seed;
+        function rand() { s = (s * 16807) % 2147483647; return s / 2147483647; }
+        var traces = [];
+        var pads = [];
+        for (var i = 0; i < n; i++) {
+            var y = 30 + rand() * (h - 60);
+            var x = -20;
+            var d = 'M ' + x + ' ' + Math.round(y);
+            while (x < w + 20) {
+                x += 90 + rand() * 240;
+                d += ' L ' + Math.round(Math.min(x, w + 20)) + ' ' + Math.round(y);
+                if (x < w && rand() < 0.75) {
+                    var dy = (rand() < 0.5 ? -1 : 1) * (30 + rand() * 80);
+                    var nx = x + Math.abs(dy);
+                    var ny = Math.max(24, Math.min(h - 24, y + dy));
+                    d += ' L ' + Math.round(nx) + ' ' + Math.round(ny);
+                    pads.push({ x: Math.round(x), y: Math.round(y) });
+                    x = nx;
+                    y = ny;
+                }
+            }
+            traces.push({ d: d, dur: 6 + rand() * 8, delay: -rand() * 12 });
+        }
+        return { traces: traces, pads: pads };
+    }
 
-  const filtered = projects.filter((project) => {
-    const matchesCategory =
-      filter === "all" || project.category.includes(filter);
-    const matchesSearch =
-      project.title.toLowerCase().includes(term) ||
-      project.desc.toLowerCase().includes(term);
-    return matchesCategory && matchesSearch;
-  });
+    function buildCircuit() {
+        var host = document.getElementById('circuit');
+        if (!host) return;
+        var seed = parseInt(host.getAttribute('data-seed') || '1337', 10);
+        var height = parseInt(host.getAttribute('data-height') || '3400', 10);
+        var count = parseInt(host.getAttribute('data-count') || '44', 10);
+        var data = makeTraces(seed, 1920, height, count);
 
-  if (filtered.length === 0) {
-    projectGrid.innerHTML = "<p class='no-results'>No matching projects found.</p>";
-    return;
-  }
+        var parts = [];
+        parts.push('<svg width="100%" height="100%" viewBox="0 0 1920 ' + height + '" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;">');
+        parts.push('<g opacity="0.5">');
+        data.traces.forEach(function (t) {
+            parts.push('<path d="' + t.d + '" fill="none" stroke="#155c31" stroke-width="1.5"/>');
+        });
+        data.pads.forEach(function (p) {
+            parts.push('<circle cx="' + p.x + '" cy="' + p.y + '" r="3.5" fill="#03100a" stroke="#2c8a4f" stroke-width="1.5"/>');
+        });
+        parts.push('</g><g>');
+        data.traces.forEach(function (t) {
+            var begin = t.delay.toFixed(2) + 's';
+            var dur = t.dur.toFixed(2) + 's';
+            parts.push('<circle r="8" fill="rgba(57,255,122,0.28)"><animateMotion dur="' + dur + '" repeatCount="indefinite" path="' + t.d + '" begin="' + begin + '"/></circle>');
+            parts.push('<circle r="3.5" fill="#c9ffdf"><animateMotion dur="' + dur + '" repeatCount="indefinite" path="' + t.d + '" begin="' + begin + '"/></circle>');
+        });
+        parts.push('</g></svg>');
+        host.innerHTML = parts.join('');
+    }
 
-  filtered.forEach((project) => {
-    const card = document.createElement("div");
-    card.className = "project-card";
-    card.innerHTML = `
-      <div class="project-header">${project.emoji} ${project.title}</div>
-      <p>${project.desc}</p>
-      <a href="${project.url}" target="_blank">🔗 View Project</a>
-    `;
-    projectGrid.appendChild(card);
-  });
-}
+    /* ---------- BIOS boot overlay (first visit per session) ---------- */
 
-// Search & filter functions
-function filterProjects(category) {
-  renderProjects(category);
-}
+    var BOOT_LINES = [
+        'CPU  : UTSAV KHATIWADA @ SYDNEY.AU .............. OK',
+        'MEM  : 3+ YEARS IT SUPPORT ...................... OK',
+        'NET  : TAILSCALE VPN TUNNEL ..................... CONNECTED',
+        'GPU  : ZEBRA TC53 HANDHELD ...................... DETECTED',
+        'SSD  : RASPBERRY PI 4 HOMELAB ................... MOUNTED',
+        'SEC  : MFA + CONDITIONAL ACCESS ................. ENFORCED',
+        'SRV  : NEPAL-POS.SERVICE ........................ ACTIVE (RUNNING)',
+        'LOADING PORTFOLIO.SYS ........................... 100%',
+        'BOOT SEQUENCE COMPLETE. WELCOME, VISITOR'
+    ];
 
-searchBox.addEventListener("input", () => renderProjects("all"));
+    function setupBoot() {
+        var boot = document.getElementById('boot');
+        if (!boot) return;
 
-// Dark mode toggle
-const toggle = document.getElementById("darkToggle");
-toggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-});
+        var booted = false;
+        try { booted = sessionStorage.getItem('uk_booted') === '1'; } catch (e) {}
+        if (booted) { boot.classList.add('done'); return; }
 
-// Initial load
-renderProjects();
+        var linesHost = boot.querySelector('.boot-lines');
+        var count = 0;
+        var timer = setInterval(function () {
+            if (count < BOOT_LINES.length) {
+                var div = document.createElement('div');
+                div.className = 'boot-line';
+                div.textContent = BOOT_LINES[count];
+                linesHost.appendChild(div);
+                count++;
+            }
+            if (count >= BOOT_LINES.length) {
+                clearInterval(timer);
+                setTimeout(end, 800);
+            }
+        }, 230);
+
+        function end() {
+            if (boot.classList.contains('done')) return;
+            try { sessionStorage.setItem('uk_booted', '1'); } catch (e) {}
+            clearInterval(timer);
+            boot.classList.add('closing');
+            setTimeout(function () { boot.classList.add('done'); }, 550);
+            window.removeEventListener('keydown', end);
+        }
+
+        boot.addEventListener('click', end);
+        window.addEventListener('keydown', end);
+    }
+
+    /* ---------- matrix rain in the hero ---------- */
+
+    function setupMatrix() {
+        var c = document.getElementById('matrix');
+        if (!c) return;
+        var ctx = c.getContext('2d');
+        var fs = 16;
+        var cols = Math.floor(c.width / fs);
+        var drops = [];
+        for (var i = 0; i < cols; i++) drops.push(Math.floor(Math.random() * 35));
+        var chars = '01<>/{}$#@ABCDEF';
+        ctx.fillStyle = '#03100a';
+        ctx.fillRect(0, 0, c.width, c.height);
+        setInterval(function () {
+            ctx.fillStyle = 'rgba(3,16,10,0.14)';
+            ctx.fillRect(0, 0, c.width, c.height);
+            ctx.font = fs + 'px monospace';
+            for (var i = 0; i < cols; i++) {
+                var ch = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillStyle = Math.random() < 0.08 ? '#b6ffd0' : '#1f9e52';
+                ctx.fillText(ch, i * fs, drops[i] * fs);
+                if (drops[i] * fs > c.height && Math.random() > 0.972) drops[i] = 0;
+                drops[i]++;
+            }
+        }, 66);
+    }
+
+    /* ---------- scroll progress bar under the nav ---------- */
+
+    function setupProgress() {
+        var bar = document.getElementById('progress');
+        if (!bar) return;
+        window.addEventListener('scroll', function () {
+            var el = document.documentElement;
+            var max = el.scrollHeight - el.clientHeight;
+            bar.style.width = (max > 0 ? Math.min(100, (el.scrollTop / max) * 100) : 0) + '%';
+        }, { passive: true });
+    }
+
+    /* ---------- reveal-on-scroll ---------- */
+
+    function setupReveal() {
+        var els = document.querySelectorAll('[data-reveal]');
+        if (!els.length) return;
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                if (en.isIntersecting) {
+                    en.target.style.opacity = '1';
+                    en.target.style.transform = 'none';
+                    io.unobserve(en.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        els.forEach(function (el, i) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(28px)';
+            var delay = ((i % 4) * 0.09).toFixed(2) + 's';
+            el.style.transition = 'opacity 0.7s ease ' + delay + ', transform 0.7s ease ' + delay;
+            io.observe(el);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        buildCircuit();
+        setupBoot();
+        setupMatrix();
+        setupProgress();
+        setupReveal();
+    });
+})();

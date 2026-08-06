@@ -1,106 +1,253 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Utsav Khatiwada – IT Graduate Portfolio</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Utsav Khatiwada, IT Service Desk Engineer and homelab builder, Sydney">
+    <title>Utsav Khatiwada | IT Service Desk Engineer</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">Utsav 💻</div>
-      <ul class="nav-links">
-        <li><a href="#intro">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#why">Why I Build</a></li>
-        <li><a href="#timeline">Timeline</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a class="resume-btn" href="resume.pdf" target="_blank">📄 Resume</a></li>
-        <li><button id="darkToggle">🌓</button></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section id="intro" class="intro-section">
-    <h1>Hey, I'm Utsav Khatiwada 👋</h1>
-    <p class="tagline">IT Graduate • Builder • Psychology-Driven UX Enthusiast</p>
-    <p>Welcome to my interactive project portfolio. Here you'll find a fusion of technical experimentation, frontend creativity, Raspberry Pi builds, and emotionally intelligent tools crafted for impact and growth.</p>
-  </section>
-
-  <section id="projects">
-    <h2>Featured Technical Projects</h2>
-    <div class="filter-buttons">
-      <button onclick="filterProjects('all')">All</button>
-      <button onclick="filterProjects('web')">Web</button>
-      <button onclick="filterProjects('psychology')">Psychology</button>
-      <button onclick="filterProjects('iot')">IoT</button>
-      <button onclick="filterProjects('infra')">Infra</button>
-      <button onclick="filterProjects('notion')">Productivity</button>
-      <input type="text" id="searchBox" placeholder="Search projects..." />
-    </div>
-    <div id="projectGrid" class="projects-grid"></div>
-  </section>
-
-  <section id="why">
-    <h2>Why I Build 🧭</h2>
-    <p>I believe technology is not just functional — it’s emotional. My projects aim to spark introspection, solve real-world issues, and explore the intersection of psychology and tech. From HL7 hospital data to emotional profiling quizzes, I bring empathy to engineering.</p>
-  </section>
-
- <section id="timeline" data-aos="fade-up">
-  <h2>📍 Career Timeline</h2>
-  <div class="timeline-container">
-    <div class="timeline-item">
-      <span class="timeline-date">2020</span>
-      <p>🎓 Diploma of IT<br><em>First exposure to systems and basic programming foundations.</em></p>
+    <!-- BIOS boot overlay (first visit per session; click or key to skip) -->
+    <div id="boot">
+        <div class="boot-title">UK-BIOS (C) 2026, HOMELAB EDITION v2.7</div>
+        <div class="boot-lines"></div>
+        <div><span class="boot-cursor"></span></div>
+        <div class="boot-skip">PRESS ANY KEY OR CLICK TO SKIP ▮</div>
+        <div class="boot-scanlines"></div>
     </div>
 
-    <div class="timeline-item">
-      <span class="timeline-date">2021</span>
-      <p>🎓 Advanced Diploma of Network Security<br>🛡️ Built a Raspberry Pi Ad Blocker project — self-initiated deep dive into networking and DNS filtering.</p>
+    <div class="page">
+        <!-- animated circuit board behind the whole page -->
+        <div id="circuit" class="circuit-layer" data-seed="1337" data-height="3600" data-count="46"></div>
+
+        <nav>
+            <a href="#top" class="nav-brand">UK · REV 2.7</a>
+            <div class="nav-spacer"></div>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">J1·ABOUT</a>
+                <a href="#skills" class="nav-link">J2·SKILLS</a>
+                <a href="#experience" class="nav-link">J3·EXPERIENCE</a>
+                <a href="#education" class="nav-link">J4·EDUCATION</a>
+                <a href="projects.html" class="nav-link">J5·PROJECTS</a>
+                <a href="#contact" class="nav-link">J6·CONTACT</a>
+            </div>
+            <div class="nav-progress-track"><div id="progress"></div></div>
+        </nav>
+
+        <!-- ================= HERO ================= -->
+        <section id="top" class="hero">
+            <canvas id="matrix" width="1920" height="660"></canvas>
+            <div class="hero-vignette"></div>
+            <span class="corner tl"></span>
+            <span class="corner tr"></span>
+            <span class="corner bl"></span>
+            <span class="corner br"></span>
+            <div class="scan-sweep"></div>
+            <div class="hero-inner">
+                <div class="prompt-line">
+                    <span class="user">utsav@homelab:~$</span>
+                    <span class="typing">./boot_portfolio.sh --hire-me</span>
+                </div>
+                <div class="glitch-wrap">
+                    <h1>UTSAV KHATIWADA</h1>
+                    <h1 class="ga" aria-hidden="true">UTSAV KHATIWADA</h1>
+                    <h1 class="gb" aria-hidden="true">UTSAV KHATIWADA</h1>
+                </div>
+                <div class="hero-sub">IT SERVICE DESK ENGINEER // SYSTEMS &amp; NETWORKS // SYDNEY.AU<span class="cursor"></span></div>
+                <div class="hero-buttons">
+                    <a href="projects.html" class="btn primary">[ VIEW PROJECTS ]</a>
+                    <a href="#contact" class="btn ghost">[ CONTACT ]</a>
+                    <a href="resume.pdf" target="_blank" class="btn ghost">[ RESUME ]</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= BODY ================= -->
+        <div class="container main">
+
+            <!-- ABOUT, terminal window -->
+            <section id="about" data-reveal="1" class="about-grid">
+                <div class="portrait-wrap">
+                    <img src="assets/utsav.jpg" alt="Utsav Khatiwada">
+                    <span class="pc tl"></span>
+                    <span class="pc tr"></span>
+                    <span class="pc bl"></span>
+                    <span class="pc br"></span>
+                    <div class="portrait-caption">OPERATOR · ACS MEMBER</div>
+                </div>
+                <div class="term flicker">
+                    <div class="term-bar">
+                        <span class="term-dot"></span>
+                        <span class="term-dot"></span>
+                        <span class="term-dot lit"></span>
+                        <span class="term-title">utsav@homelab: ~, bash</span>
+                    </div>
+                    <div class="term-body">
+                        <div class="cmd"><span class="user">utsav@homelab:~$</span> whoami</div>
+                        <p>IT Service Desk Engineer with hands on L1/L2 support experience across multiple healthcare organisations, resolving 40 to 50 tickets a week spanning hardware, software, network and identity. Bachelor of IT (Network &amp; System Computing), Victoria University. ACS Professional Year in ICT. Outside work I build and run a full homelab, a production point of sale platform for my family's shop in Nepal, and a handful of web tools exploring psychology and UX.</p>
+                        <div class="cmd"><span class="user">utsav@homelab:~$</span> uptime</div>
+                        <p>3+ years in IT support, currently at Interfuse Technologies, Sydney, supporting 4 healthcare clients across 80+ managed endpoints<span class="cursor"></span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section id="skills" data-reveal="1">
+                <div class="section-label">// ONBOARD CONTROLLERS, SKILLS</div>
+                <div class="term">
+                    <div class="term-bar">
+                        <span class="term-dot"></span>
+                        <span class="term-dot"></span>
+                        <span class="term-dot lit"></span>
+                        <span class="term-title">utsav@homelab: ~, cat skills.txt</span>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-row"><span class="skill-key">OS</span><span class="skill-val">Windows 10/11 · Windows Server 2016/2019 · macOS · Linux (Raspberry Pi OS, Ubuntu)</span></div>
+                        <div class="skill-row"><span class="skill-key">CLOUD</span><span class="skill-val">Microsoft 365 · Azure AD · Intune · Teams · SharePoint · OneDrive</span></div>
+                        <div class="skill-row"><span class="skill-key">SYSADMIN</span><span class="skill-val">Active Directory · Group Policy · On/Offboarding · RDP · AnyDesk · Splashtop</span></div>
+                        <div class="skill-row"><span class="skill-key">NETWORK</span><span class="skill-val">TCP/IP · DNS · DHCP · VPN (Tailscale) · LAN/WAN · Firewalls · Reverse Proxies</span></div>
+                        <div class="skill-row"><span class="skill-key">DEV</span><span class="skill-val">Python · Flask · SQLite · Docker · vanilla JS/HTML/CSS · GitHub Actions</span></div>
+                        <div class="skill-row"><span class="skill-key">CLINICAL</span><span class="skill-val">Radiology IS · medical records · diagnostic imaging · pathology · aged care</span></div>
+                        <div class="skill-row"><span class="skill-key">TOOLS</span><span class="skill-val">NinjaOne · Atera · Datto RMM · Autotask · SOP documentation</span></div>
+                        <div class="skill-row"><span class="skill-key">SECURITY</span><span class="skill-val">MFA · Conditional Access · endpoint security · malware response</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EXPERIENCE -->
+            <section id="experience">
+                <div class="section-label">// POWER RAIL, EXPERIENCE</div>
+                <div class="xp-list">
+                    <div data-reveal="1" class="xp-card live">
+                        <div class="xp-head">
+                            <div class="xp-title">IT Service Desk Engineer, Interfuse Technologies, Sydney</div>
+                            <div class="xp-date">AUG 2025 TO PRESENT · LIVE</div>
+                        </div>
+                        <p>L1/L2 ICT support for four healthcare clients: aged care, two radiology groups and a diagnostic practice. 40 to 50 tickets a week across hardware, software, network and accounts. AD + M365 user lifecycles, Windows 10 to 11 campaigns across 80+ endpoints, MFA and Conditional Access enforcement, clinical software troubleshooting, KB/SOP authoring, vendor escalations.</p>
+                    </div>
+                    <div data-reveal="1" class="xp-card">
+                        <div class="xp-head">
+                            <div class="xp-title">IT Support, Security In Depth</div>
+                            <div class="xp-date">JUL 2023 TO 2025</div>
+                        </div>
+                        <p>User account management and on/offboarding in Windows Server environments. Group policies, NTFS permissions, security audits. Freshdesk support, Intune device management, Veeam backups.</p>
+                    </div>
+                    <div data-reveal="1" class="xp-card">
+                        <div class="xp-head">
+                            <div class="xp-title">Food &amp; Beverage Administrator, Hilton Sydney</div>
+                            <div class="xp-date">APR 2021 TO JUL 2023</div>
+                        </div>
+                        <p>POS system setup and configuration across outlets, collaborating with IT and Finance on system synchronisation and troubleshooting.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EDUCATION + CERTS -->
+            <section id="education" data-reveal="1" class="logs-grid">
+                <div class="term">
+                    <div class="term-bar">
+                        <span class="term-dot"></span>
+                        <span class="term-dot lit"></span>
+                        <span class="term-title">cat education.log</span>
+                    </div>
+                    <div class="log-body">
+                        <div class="log-row"><span class="yr">[2025]</span> <span class="what">ACS Professional Year in ICT, QIBA</span></div>
+                        <div class="log-row"><span class="yr">[2023]</span> <span class="what">Bachelor of IT (Network &amp; System Computing), Victoria University · GPA 6.21/7</span></div>
+                        <div class="log-row"><span class="yr">[2021]</span> <span class="what">Adv. Diploma of Network Security, SABT Sydney</span></div>
+                        <div class="log-row"><span class="yr">[2020]</span> <span class="what">Diploma of IT, SABT Sydney</span></div>
+                    </div>
+                </div>
+                <div id="certifications" class="term">
+                    <div class="term-bar">
+                        <span class="term-dot"></span>
+                        <span class="term-dot lit"></span>
+                        <span class="term-title">cat certifications.log</span>
+                    </div>
+                    <div class="log-body">
+                        <div class="log-row"><span class="yr">[WIP ]</span> <span class="what">Microsoft Azure Fundamentals (AZ-900)</span></div>
+                        <div class="log-row"><span class="yr">[2024]</span> <span class="what">Career Essentials: System Administration, Microsoft</span></div>
+                        <div class="log-row"><span class="yr">[2024]</span> <span class="what">Career Essentials: Cybersecurity, Microsoft</span></div>
+                        <div class="log-row"><span class="yr">[2024]</span> <span class="what">ITIL Foundation, LinkedIn Learning</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROJECTS PREVIEW, motherboard -->
+            <section id="projects">
+                <div class="board-head">
+                    <div class="section-label">// LIVE MOTHERBOARD, MOUNTED COMPONENTS</div>
+                    <a href="projects.html" class="board-link">VIEW FULL BOARD →</a>
+                </div>
+                <div class="grid4">
+                    <a href="khatiwada-pos.html" data-reveal="1" class="board-card">
+                        <span class="pins-h top"></span>
+                        <span class="pins-h bottom"></span>
+                        <span class="pins-v left"></span>
+                        <span class="pins-v right"></span>
+                        <div class="chip-label">U1 · CPU</div>
+                        <div class="chip-title">Khatiwada POS SaaS</div>
+                        <div class="chip-desc">A family shop's cash register, rebuilt as a multi tenant SaaS platform for small shops across Nepal, on its own cloud VPS.</div>
+                    </a>
+                    <a href="khatiwada-store.html" data-reveal="1" class="board-card">
+                        <span class="pins-h bottom" style="left: 12px; right: auto; width: 55%; height: 7px;"></span>
+                        <span class="pins-h bottom" style="left: auto; right: 12px; width: 22%; height: 7px;"></span>
+                        <span class="ring" style="top: 20px; right: 18px; width: 32px; height: 32px;"></span>
+                        <span class="ring inner" style="top: 29px; right: 27px; width: 14px; height: 14px;"></span>
+                        <div class="chip-label">U3 · GPU</div>
+                        <div class="chip-title">Khatiwada Store Website</div>
+                        <div class="chip-desc">Bilingual marketing site for the physical shop in Kathmandu, its own domain, real product photography, deployed alongside the POS.</div>
+                    </a>
+                    <a href="ai-server.html" data-reveal="1" class="board-card">
+                        <span class="pins-h bottom" style="left: 12px; right: auto; width: 34%; height: 7px;"></span>
+                        <span class="pins-h bottom" style="left: 42%; right: 12px; height: 7px;"></span>
+                        <div class="pad-row">
+                            <span class="pad" style="width: 20px; height: 11px;"></span>
+                            <span class="pad" style="width: 20px; height: 11px;"></span>
+                            <span class="pad" style="width: 20px; height: 11px;"></span>
+                            <span class="pad" style="width: 20px; height: 11px;"></span>
+                        </div>
+                        <div class="chip-label">U5 · RAM</div>
+                        <div class="chip-title">Local AI Server</div>
+                        <div class="chip-desc">Mac mini M4 running Ollama and Open WebUI, four local models plus Gemini, reachable from any device on the Tailnet.</div>
+                    </a>
+                    <a href="true-colour.html" data-reveal="1" class="board-card">
+                        <span class="pins-v left" style="top: 16px; bottom: 40%; width: 6px;"></span>
+                        <span class="pins-v left" style="top: 68%; bottom: 16px; width: 6px;"></span>
+                        <div class="pad-row">
+                            <span class="pad" style="width: 28px; height: 15px;"></span>
+                            <span class="pad" style="width: 28px; height: 15px;"></span>
+                        </div>
+                        <div class="chip-label">U7 · PSU</div>
+                        <div class="chip-title">I See Your True Colour</div>
+                        <div class="chip-desc">A colour personality quiz with an SVG kundali result chart, one of four self hosted psychology quizzes on the full board.</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- CONTACT -->
+            <section id="contact" data-reveal="1" class="contact-card">
+                <div>
+                    <div class="section-label">// I/O PORTS, CONTACT</div>
+                    <div class="contact-prompt"><span class="user">utsav@homelab:~$</span> ping utsav --anywhere<span class="cursor"></span></div>
+                </div>
+                <div class="contact-links">
+                    <div class="row"><span class="key">EMAIL</span><a href="mailto:utsavkth@gmail.com">utsavkth@gmail.com</a></div>
+                    <div class="row"><span class="key">GITHUB</span><a href="https://github.com/utsavkth" target="_blank">github.com/utsavkth</a></div>
+                    <div class="row"><span class="key">LINKEDIN</span><a href="https://www.linkedin.com/in/utsav-khatiwada/" target="_blank">in/utsav-khatiwada</a></div>
+                </div>
+            </section>
+        </div>
+
+        <footer>© 2026 UTSAV KHATIWADA, SERVED FROM A RASPBERRY PI HOMELAB</footer>
+
+        <!-- scanline texture over everything -->
+        <div class="scanlines"></div>
     </div>
 
-    <div class="timeline-item">
-      <span class="timeline-date">2023</span>
-      <p>🎓 Bachelor of IT (Distinction) – Victoria University<br>📦 Final Year Project: Raspberry Pi CDN Media Server — content delivery across LAN using Docker and media services.</p>
-    </div>
-
-    <div class="timeline-item">
-      <span class="timeline-date">2023</span>
-      <p>💼 Internship at Aphore (During Bachelor’s)<br>🛠️ Hands-on experience with Microsoft 365, Intune, Azure AD, Outlook config & IT support — practical exposure to enterprise environments and system admin tasks.</p>
-    </div>
-    
-    <div class="timeline-item">
-      <span class="timeline-date">2023</span>
-      <p>📚 Built the Student Resource Hub on Notion — designed for peers to track units, notes, and productivity. Demonstrated platform thinking and UX design.</p>
-    </div>
-
-    <div class="timeline-item">
-      <span class="timeline-date">2025</span>
-      <p>🛠️ Internship at Interfuse Technologies<br>🔬 Developed a Digital Pathology Middleware prototype using Raspberry Pi and shell scripting — simulated secure imaging workflows between lab devices and EMR systems.</p>
-    </div>
-
-    <div class="timeline-item">
-      <span class="timeline-date">2024 – 2025</span>
-      <p>🌐 Designed and launched 5+ interactive web tools blending psychology and UI/UX logic:<br>🧠 Includes Love Language Explorer, Attachment Style Profiler, Temperament Insight Tool, and Colour Preference Quiz.</p>
-    </div>
-  </div>
-</section>
-
-
-  <section id="contact" class="cta-section">
-    <h2>Let’s Connect 🤝</h2>
-    <p>I’m open to roles in IT support, frontend development, systems integration, or hybrid positions combining tech with emotional intelligence.</p>
-    <a class="resume-btn" href="resume.pdf" target="_blank">📄 View My Resume</a>
-    <p>Or email me: <a href="mailto:utsavkth@gmail.com">utsavkth@gmail.com</a></p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Utsav Khatiwada. Built with heart and code.</p>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

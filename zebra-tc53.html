@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zebra TC53 handheld cashier, a companion app to the Khatiwada POS">
+    <title>Zebra TC53 Handheld Cashier | Utsav Khatiwada</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pos-page">
+    <div class="pos-wrap">
+        <div class="pos-term">
+
+            <div class="term-bar">
+                <span class="term-dot"></span>
+                <span class="term-dot"></span>
+                <span class="term-dot lit"></span>
+                <span class="term-title">utsav@homelab: ~/projects/zebra-pos, bash</span>
+                <div class="spacer"></div>
+                <a href="projects.html">[× back to board]</a>
+            </div>
+
+            <div class="pos-body">
+                <div class="pos-cmd">
+                    <span class="user">utsav@homelab:~$</span>
+                    <span class="typing">cd ~/projects/zebra-pos</span>
+                </div>
+
+                <h1 class="pos-title">ZEBRA TC53 CASHIER</h1>
+                <p class="pos-sub">&gt; U2 · GPU, HANDHELD COMPANION TO THE MAIN POS<span class="cursor"></span></p>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/zebra-pos$</span> cat README.md</div>
+                <p class="pos-text">
+                    Camera based barcode scanning on a Chromebook works, but it is never as fast or as reliable as
+                    dedicated scanner hardware. I picked up a secondhand Zebra TC53 enterprise handheld and built a
+                    second cashier front end just for it, sharing the exact same live product and sales database as
+                    the main POS so the shop can run both tills at once with one source of truth.
+                </p>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/zebra-pos$</span> ./features --list</div>
+                <div class="pos-features">
+                    <span>▸ Keyboard wedge barcode scanning, no camera, no focus delay</span>
+                    <span>▸ Works with standard EANs and custom printed shelf labels</span>
+                    <span>▸ On device Fonepay Dynamic QR payment step</span>
+                    <span>▸ Named, saved carts so a cashier can hold a sale mid transaction</span>
+                    <span>▸ Live sync with the register display and the main POS database</span>
+                    <span>▸ Same signed token login flow as the SaaS platform</span>
+                </div>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/zebra-pos$</span> docker inspect zebra-pos --format stack</div>
+                <div class="pos-stack">
+                    <span class="key">HARDWARE</span><span class="val">Zebra TC53, Android 13, 6 inch display, dedicated scan engine</span>
+                    <span class="key">INPUT</span><span class="val">DataWedge keyboard wedge scanning</span>
+                    <span class="key">PAYMENTS</span><span class="val">Fonepay Dynamic QR</span>
+                    <span class="key">DATA</span><span class="val">Same store.db and sales.db as the main POS, no separate database</span>
+                    <span class="key">STATUS</span><span class="val">Parked and experimental, developed alongside the live POS which stays untouched</span>
+                </div>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/zebra-pos$</span> git log --reverse --milestones</div>
+                <div class="pos-log">
+                    <span class="d">2026-07-12</span><span class="t">Hardware purchased secondhand, DataWedge keyboard wedge scanning confirmed working. Project split into its own codebase so the proven main POS stays untouched</span>
+                    <span class="d">2026-07-13</span><span class="t">Shared live database over WAL mode, wedge scan capture for EANs and alphanumeric shelf labels, QR payment step, restyled and fitted to the TC53's screen</span>
+                    <span class="d">2026-07-23</span><span class="t">Full signed token login and portal gating flow added, matching the main SaaS platform</span>
+                    <span class="d">ONGOING</span><span class="t">Proving out alongside the family shop's real POS before it takes over as the primary till</span>
+                </div>
+
+                <div class="pos-buttons">
+                    <a href="khatiwada-store.html" class="btn primary">[ NEXT: KHATIWADA STORE WEBSITE → ]</a>
+                    <a href="projects.html" class="btn ghost">[ ← ALL PROJECTS ]</a>
+                    <a href="index.html" class="btn ghost">[ ~ HOME ]</a>
+                </div>
+
+                <div class="pos-cmd pos-end"><span class="user">utsav@homelab:~/projects/zebra-pos$</span> <span class="cursor"></span></div>
+            </div>
+
+            <div class="pos-scanlines"></div>
+        </div>
+    </div>
+</body>
+</html>

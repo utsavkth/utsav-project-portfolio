@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Khatiwada Store website, a bilingual marketing site for the family shop in Kathmandu">
+    <title>Khatiwada Store Website | Utsav Khatiwada</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pos-page">
+    <div class="pos-wrap">
+        <div class="pos-term">
+
+            <div class="term-bar">
+                <span class="term-dot"></span>
+                <span class="term-dot"></span>
+                <span class="term-dot lit"></span>
+                <span class="term-title">utsav@homelab: ~/projects/khatiwadastore, bash</span>
+                <div class="spacer"></div>
+                <a href="projects.html">[× back to board]</a>
+            </div>
+
+            <div class="pos-body">
+                <div class="pos-cmd">
+                    <span class="user">utsav@homelab:~$</span>
+                    <span class="typing">cd ~/projects/khatiwadastore</span>
+                </div>
+
+                <h1 class="pos-title">KHATIWADA STORE</h1>
+                <p class="pos-sub">&gt; U3 · GPU2, THE SHOP'S OWN FRONT DOOR ON THE WEB<span class="cursor"></span></p>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/khatiwadastore$</span> cat README.md</div>
+                <p class="pos-text">
+                    A separate product from the POS itself, this is the family shop's own marketing site: who they are,
+                    what they sell, where to find them. Bilingual English and Nepali, built to match the POS platform's
+                    own design language so the two feel like one family, and deployed on the same VPS as its own
+                    isolated container with its own domain.
+                </p>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/khatiwadastore$</span> ./features --list</div>
+                <div class="pos-features">
+                    <span>▸ Seven real product categories with real photography</span>
+                    <span>▸ Bilingual copy, 75 English/Nepali attribute pairs</span>
+                    <span>▸ Honest structured data, real address, hours and Google rating</span>
+                    <span>▸ Custom KS monogram logo and favicon set</span>
+                    <span>▸ Own domain, khatiwadastore.com.np, plus www</span>
+                    <span>▸ Multi arch container image, built for the VPS's ARM64 CPU</span>
+                </div>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/khatiwadastore$</span> docker inspect khatiwadastore --format stack</div>
+                <div class="pos-stack">
+                    <span class="key">FRONTEND</span><span class="val">Static HTML, CSS and JavaScript, no build step</span>
+                    <span class="key">CONTAINER</span><span class="val">nginx:alpine, published to GHCR, tagged per commit</span>
+                    <span class="key">CI</span><span class="val">GitHub Actions, multi arch build for amd64 and arm64</span>
+                    <span class="key">HOST</span><span class="val">Same Oracle Cloud VPS as the POS platform, its own Caddy block and TLS certificate</span>
+                    <span class="key">DOMAIN</span><span class="val">khatiwadastore.com.np, approved by Nepal's Mercantile registrar</span>
+                </div>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/khatiwadastore$</span> git log --reverse --milestones</div>
+                <div class="pos-log">
+                    <span class="d">2026-08-02</span><span class="t">Site designed and rebuilt from a design export that was not actually deployable, 810KB down to 38KB, no runtime dependency left</span>
+                    <span class="d">2026-08-03</span><span class="t">Live with TLS on a temporary subdomain, header matched to the POS site's own cream palette, hover states fixed on every card</span>
+                    <span class="d">2026-08-04</span><span class="t">Domain registration approved and migrated same day, real shopfront photo, founding year badge, mobile header bug fixed, lazy loaded category images</span>
+                    <span class="d">TODAY</span><span class="t">Live at khatiwadastore.com.np, fully done, no open items on the site itself</span>
+                </div>
+
+                <div class="pos-buttons">
+                    <a href="home-server.html" class="btn primary">[ NEXT: HOME SERVER → ]</a>
+                    <a href="projects.html" class="btn ghost">[ ← ALL PROJECTS ]</a>
+                    <a href="index.html" class="btn ghost">[ ~ HOME ]</a>
+                </div>
+
+                <div class="pos-cmd pos-end"><span class="user">utsav@homelab:~/projects/khatiwadastore$</span> <span class="cursor"></span></div>
+            </div>
+
+            <div class="pos-scanlines"></div>
+        </div>
+    </div>
+</body>
+</html>

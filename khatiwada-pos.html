@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Khatiwada POS SaaS, a multi tenant point of sale platform grown from a family shop tool">
+    <title>Khatiwada POS SaaS | Utsav Khatiwada</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pos-page">
+    <div class="pos-wrap">
+        <div class="pos-term">
+
+            <div class="term-bar">
+                <span class="term-dot"></span>
+                <span class="term-dot"></span>
+                <span class="term-dot lit"></span>
+                <span class="term-title">utsav@homelab: ~/projects/khatiwada-pos, bash</span>
+                <div class="spacer"></div>
+                <a href="projects.html">[× back to board]</a>
+            </div>
+
+            <div class="pos-body">
+                <div class="pos-cmd">
+                    <span class="user">utsav@homelab:~$</span>
+                    <span class="typing">cd ~/projects/khatiwada-pos</span>
+                </div>
+
+                <h1 class="pos-title">KHATIWADA POS SAAS</h1>
+                <p class="pos-sub">&gt; U1 · CPU, FROM ONE FAMILY SHOP TO A MULTI TENANT PLATFORM<span class="cursor"></span></p>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/khatiwada-pos$</span> cat README.md</div>
+                <p class="pos-text">
+                    My family runs a small grocery store in Kathmandu. Sales used to live on pen and paper, no product
+                    database, no sales history, no way to know what was actually selling. I built a browser based point
+                    of sale for it, served from a Raspberry Pi in Sydney over a private Tailscale VPN, and it has been
+                    in daily use at the shop since July 2026. This year I took the same codebase and rebuilt it into a
+                    proper multi tenant SaaS product, so any small shop owner in Nepal can get their own isolated store
+                    on the same platform.
+                </p>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/khatiwada-pos$</span> ./features --list</div>
+                <div class="pos-features">
+                    <span>▸ Camera based barcode scanning, works on Chromebook and iPhone</span>
+                    <span>▸ Bilingual English / Nepali cashier interface</span>
+                    <span>▸ Live Bikram Sambat calendar and Kathmandu clock</span>
+                    <span>▸ Weighed goods sold per kilogram or litre</span>
+                    <span>▸ Password protected admin panel with CSV sales reports</span>
+                    <span>▸ Isolated Docker container per SaaS customer</span>
+                    <span>▸ Signed token handoff login, no shared sessions between tenants</span>
+                    <span>▸ Master dashboard for onboarding and managing customers</span>
+                </div>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/khatiwada-pos$</span> docker inspect khatiwada-pos --format stack</div>
+                <div class="pos-stack">
+                    <span class="key">RUNTIME</span><span class="val">Python · Flask · SQLite</span>
+                    <span class="key">FRONTEND</span><span class="val">Plain HTML / CSS / JavaScript, no framework</span>
+                    <span class="key">ORIGINAL HOST</span><span class="val">Raspberry Pi 4, Sydney, family shop only</span>
+                    <span class="key">SAAS HOST</span><span class="val">Oracle Cloud VPS, Docker per customer, Caddy reverse proxy</span>
+                    <span class="key">AUTH</span><span class="val">Signed short lived tokens handing a login off to its own container</span>
+                    <span class="key">SECURITY</span><span class="val">Rate limiting, CORS allowlist, security headers, no wildcard origins</span>
+                </div>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/projects/khatiwada-pos$</span> git log --reverse --milestones</div>
+                <div class="pos-log">
+                    <span class="d">2026-07-02</span><span class="t">Project start. Flask and SQLite scaffold, cashier screen with scan, search and running bill, admin panel, quick tap categories, Quick Add for unknown barcodes</span>
+                    <span class="d">2026-07-03</span><span class="t">Hardened and deployed. A 54 check test suite, Dockerised with gunicorn, live behind Caddy with real HTTPS over Tailscale</span>
+                    <span class="d">2026-07-04</span><span class="t">Made it Nepali. English/Nepali toggle, live Bikram Sambat date, Nepali product names, pinned quick buttons</span>
+                    <span class="d">2026-07-09</span><span class="t">Full UI redesign, weighed and measured goods generalised to litres, automatic cache busting for shop devices</span>
+                    <span class="d">2026-07-20</span><span class="t">Commercialisation begins. Landing site and login flow scoped out to turn the single family deployment into a SaaS product</span>
+                    <span class="d">2026-07-22</span><span class="t">Login flow live. Store name plus password, signed handoff token, redirect into the customer's own container</span>
+                    <span class="d">2026-07-25</span><span class="t">Forgot password flow shipped, plus real security hardening: rate limiting on auth routes, CORS allowlist, no more public .git folder</span>
+                    <span class="d">2026-08-06</span><span class="t">Master dashboard, health monitoring and VPS resilience work all live. Ongoing, still the primary source of truth for the family shop plus the pilot SaaS tenants</span>
+                </div>
+
+                <div class="pos-buttons">
+                    <a href="zebra-tc53.html" class="btn primary">[ NEXT: ZEBRA TC53 HANDHELD → ]</a>
+                    <a href="projects.html" class="btn ghost">[ ← ALL PROJECTS ]</a>
+                    <a href="index.html" class="btn ghost">[ ~ HOME ]</a>
+                </div>
+
+                <div class="pos-cmd pos-end"><span class="user">utsav@homelab:~/projects/khatiwada-pos$</span> <span class="cursor"></span></div>
+            </div>
+
+            <div class="pos-scanlines"></div>
+        </div>
+    </div>
+</body>
+</html>

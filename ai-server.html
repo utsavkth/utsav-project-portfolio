@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Local AI server, a Mac mini M4 running Ollama and Open WebUI on the home network">
+    <title>Local AI Server | Utsav Khatiwada</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="pos-page">
+    <div class="pos-wrap">
+        <div class="pos-term">
+
+            <div class="term-bar">
+                <span class="term-dot"></span>
+                <span class="term-dot"></span>
+                <span class="term-dot lit"></span>
+                <span class="term-title">utsav@homelab: ~/homelab/ai-server, bash</span>
+                <div class="spacer"></div>
+                <a href="projects.html">[× back to board]</a>
+            </div>
+
+            <div class="pos-body">
+                <div class="pos-cmd">
+                    <span class="user">utsav@homelab:~$</span>
+                    <span class="typing">cd ~/homelab/ai-server</span>
+                </div>
+
+                <h1 class="pos-title">LOCAL AI SERVER</h1>
+                <p class="pos-sub">&gt; U6 · NPU, A CHATGPT STYLE INTERFACE THAT NEVER LEAVES THE HOUSE<span class="cursor"></span></p>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/homelab/ai-server$</span> cat README.md</div>
+                <p class="pos-text">
+                    A Mac mini M4 set up as a dedicated, always on local AI server alongside the Pi based homelab.
+                    Ollama runs local language models with GPU acceleration through Apple's Metal backend, Open WebUI
+                    gives it a familiar browser based chat interface, and a Google Gemini connection sits in the same
+                    dropdown for anything that benefits from a larger cloud model. Everything is reachable from any
+                    device on the home network or Tailscale, with a strict rule about what goes to which model.
+                </p>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/homelab/ai-server$</span> ./features --list</div>
+                <div class="pos-features">
+                    <span>▸ Four local models, general chat, coding, and two multimodal sizes</span>
+                    <span>▸ Google Gemini connected alongside the local models in one dropdown</span>
+                    <span>▸ External NVMe SSD for model storage, kept off the internal drive</span>
+                    <span>▸ Auto starting on boot through launch agents and a launch daemon</span>
+                    <span>▸ Caddy reverse proxy, clean local domains instead of IP and port numbers</span>
+                    <span>▸ A simple privacy rule, local models for anything sensitive, cloud for the rest</span>
+                </div>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/homelab/ai-server$</span> ollama list --format stack</div>
+                <div class="pos-stack">
+                    <span class="key">HARDWARE</span><span class="val">Mac mini M4, 16GB unified memory, external NVMe enclosure</span>
+                    <span class="key">INFERENCE</span><span class="val">Ollama, GPU accelerated through Apple Metal</span>
+                    <span class="key">INTERFACE</span><span class="val">Open WebUI, browser based, run as a network server</span>
+                    <span class="key">MODELS</span><span class="val">qwen2.5, qwen2.5 coder, gemma4 (two sizes, multimodal)</span>
+                    <span class="key">CLOUD</span><span class="val">Google Gemini, free tier, connected as an extra provider</span>
+                </div>
+
+                <div class="pos-cmd gap-b"><span class="user">utsav@homelab:~/homelab/ai-server$</span> git log --reverse --milestones</div>
+                <div class="pos-log">
+                    <span class="d">2026-06-23</span><span class="t">Set up from scratch in one session. External SSD mounted, Ollama installed, four production models pulled after a quick test model was removed</span>
+                    <span class="d">2026-06-23</span><span class="t">Open WebUI running as a proper network server rather than the desktop only build, reachable from every device on the Tailnet</span>
+                    <span class="d">2026-06-23</span><span class="t">Caddy reverse proxy and local DNS records added, so the server is reached by name instead of an IP and a port</span>
+                    <span class="d">2026-07-05</span><span class="t">Bulk document ingestion tested at scale, a resource limit bug found and fixed along the way</span>
+                    <span class="d">ONGOING</span><span class="t">Daily driver for coding help, quick questions and document search across both local and cloud models</span>
+                </div>
+
+                <div class="pos-buttons">
+                    <a href="true-colour.html" class="btn primary">[ NEXT: TRUE COLOUR → ]</a>
+                    <a href="projects.html" class="btn ghost">[ ← ALL PROJECTS ]</a>
+                    <a href="index.html" class="btn ghost">[ ~ HOME ]</a>
+                </div>
+
+                <div class="pos-cmd pos-end"><span class="user">utsav@homelab:~/homelab/ai-server$</span> <span class="cursor"></span></div>
+            </div>
+
+            <div class="pos-scanlines"></div>
+        </div>
+    </div>
+</body>
+</html>
