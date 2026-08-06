@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive branching timeline of Utsav Khatiwada's career and projects">
+    <title>Timeline | Utsav Khatiwada</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="timeline-page">
+    <nav class="timeline-nav">
+        <a href="index.html" class="nav-brand">UK · REV 2.7</a>
+        <div class="nav-spacer"></div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">← J0·HOME</a>
+            <a href="projects.html" class="nav-link">J5·PROJECTS</a>
+        </div>
+    </nav>
+
+    <div class="timeline-stage" id="timeline-stage"></div>
+
+    <div class="timeline-legend">
+        <span><span class="legend-dot edu"></span>EDUCATION</span>
+        <span><span class="legend-dot job"></span>EMPLOYMENT</span>
+        <span><span class="legend-dot project"></span>PROJECT BRANCH</span>
+    </div>
+
+    <div class="timeline-hud">
+        <div class="timeline-hud-hint">DRAG TO PAN · SCROLL TO ZOOM · CLICK A BRANCH TO GO DEEPER</div>
+    </div>
+
+    <div class="timeline-controls">
+        <button class="tl-btn" id="tl-zoom-out">[ − ]</button>
+        <button class="tl-btn" id="tl-reset">[ RESET ]</button>
+        <button class="tl-btn" id="tl-zoom-in">[ + ]</button>
+    </div>
+
+    <script src="timeline.js"></script>
+</body>
+</html>
