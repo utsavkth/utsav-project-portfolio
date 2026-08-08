@@ -874,6 +874,23 @@ body.timeline-page { overflow: hidden; height: 100vh; margin: 0; background: var
     .timeline-hud-hint { font-size: 10.5px; padding: 6px 10px; }
 }
 
+@media (max-width: 600px) {
+    .timeline-hud {
+        left: 12px;
+        right: 12px;
+        bottom: 70px;
+        align-items: center;
+    }
+    .timeline-hud-hint { text-align: center; }
+    .timeline-controls {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        justify-content: center;
+    }
+    .tl-btn { padding: 9px 10px; font-size: 12px; }
+}
+
 /* ---------- responsive ---------- */
 
 @media (max-width: 1000px) {
