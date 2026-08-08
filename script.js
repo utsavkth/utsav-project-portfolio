@@ -78,6 +78,8 @@
         'SSD  : RASPBERRY PI 4 HOMELAB ................... MOUNTED',
         'SEC  : MFA + CONDITIONAL ACCESS ................. ENFORCED',
         'SRV  : NEPAL-POS.SERVICE ........................ ACTIVE (RUNNING)',
+        'CFG  : config t .................................. APPLIED',
+        'CRN  : crontab -l ................................ 1 JOB SCHEDULED',
         'LOADING PORTFOLIO.SYS ........................... 100%',
         'BOOT SEQUENCE COMPLETE. WELCOME, VISITOR'
     ];
@@ -181,11 +183,28 @@
         });
     }
 
+    /* ---------- skills nav link plays an "ls" before settling ---------- */
+
+    function setupSkillsLs() {
+        var link = document.querySelector('.nav-link[href="#skills"]');
+        var term = document.querySelector('#skills .term');
+        if (!link || !term) return;
+        var timer = null;
+        link.addEventListener('click', function () {
+            term.classList.add('ls-active');
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                term.classList.remove('ls-active');
+            }, 1400);
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         buildCircuit();
         setupBoot();
         setupMatrix();
         setupProgress();
         setupReveal();
+        setupSkillsLs();
     });
 })();

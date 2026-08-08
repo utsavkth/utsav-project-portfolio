@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Utsav Khatiwada, page not found">
+    <title>404 | Utsav Khatiwada</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page">
+        <div id="circuit" class="circuit-layer" data-seed="404" data-height="1200" data-count="18"></div>
+
+        <nav>
+            <a href="index.html" class="nav-brand">UK · REV 2.7</a>
+            <div class="nav-spacer"></div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">← J0·HOME</a>
+                <a href="projects.html" class="nav-link">J5·PROJECTS</a>
+            </div>
+        </nav>
+
+        <div class="container error-main">
+            <div class="page-cmd"><span class="user">utsav@homelab:~$</span> <span id="errPath">cd /the-page-you-wanted</span></div>
+            <div class="error-trace" id="errTrace">bash: cd: /the-page-you-wanted: No such file or directory</div>
+
+            <h1 class="error-code">404</h1>
+            <div class="page-sub">PROCESS NOT FOUND · ERR_PAGE_NOT_MOUNTED<span class="cursor"></span></div>
+
+            <div class="hero-buttons">
+                <a href="index.html" class="btn primary">[ CTRL + ALT + DEL TO REBOOT HOME ]</a>
+                <a href="projects.html" class="btn ghost">[ VIEW PROJECTS ]</a>
+            </div>
+        </div>
+
+        <footer>© 2026 UTSAV KHATIWADA, SERVED FROM A RASPBERRY PI HOMELAB</footer>
+
+        <div class="scanlines"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        (function () {
+            var pathEl = document.getElementById('errPath');
+            var traceEl = document.getElementById('errTrace');
+            var path = window.location.pathname.split('/').filter(Boolean).pop() || 'unknown-page';
+            if (pathEl) pathEl.textContent = 'cd /' + path;
+            if (traceEl) traceEl.textContent = 'bash: cd: /' + path + ': No such file or directory';
+        })();
+    </script>
+</body>
+</html>
