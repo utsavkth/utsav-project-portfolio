@@ -1008,6 +1008,17 @@ body.timeline-page { overflow: hidden; height: 100vh; margin: 0; background: var
         white-space: nowrap;
     }
     .page-title { font-size: 38px; }
+    .pos-term .term-bar { flex-wrap: wrap; row-gap: 8px; }
+    .pos-term .term-title {
+        order: 3;
+        flex: 1 0 100%;
+        margin-left: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .pos-term .term-bar .spacer { order: 1; }
+    .pos-term .term-bar a { order: 2; white-space: nowrap; }
     .pos-body { padding: 28px 22px 36px 22px; }
     .pos-title { font-size: 52px; }
     .pos-features { grid-template-columns: 1fr; }

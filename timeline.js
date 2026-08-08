@@ -363,17 +363,55 @@
         applyTransform();
     });
 
+    var pinching = false, pinchStartDist = 0, pinchStartScale = 1, pinchMidX = 0, pinchMidY = 0, pinchWorldX = 0, pinchWorldY = 0;
+
+    function touchDist(t0, t1) {
+        var dx = t0.clientX - t1.clientX, dy = t0.clientY - t1.clientY;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
     stage.addEventListener('touchstart', function (e) {
-        if (e.touches.length === 1) { dragging = true; lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; }
+        if (e.touches.length === 1) {
+            dragging = true;
+            pinching = false;
+            lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+        } else if (e.touches.length === 2) {
+            dragging = false;
+            pinching = true;
+            pinchStartDist = touchDist(e.touches[0], e.touches[1]);
+            pinchStartScale = scale;
+            var rect = stage.getBoundingClientRect();
+            pinchMidX = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left;
+            pinchMidY = (e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top;
+            pinchWorldX = (pinchMidX - tx) / scale;
+            pinchWorldY = (pinchMidY - ty2) / scale;
+        }
     }, { passive: true });
     stage.addEventListener('touchmove', function (e) {
+        if (pinching && e.touches.length === 2) {
+            var dist = touchDist(e.touches[0], e.touches[1]);
+            var newScale = pinchStartScale * (dist / pinchStartDist);
+            newScale = Math.max(0.18, Math.min(2.4, newScale));
+            tx = pinchMidX - pinchWorldX * newScale;
+            ty2 = pinchMidY - pinchWorldY * newScale;
+            scale = newScale;
+            applyTransform();
+            return;
+        }
         if (!dragging || e.touches.length !== 1) return;
         tx += e.touches[0].clientX - lastX;
         ty2 += e.touches[0].clientY - lastY;
         lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
         applyTransform();
     }, { passive: true });
-    stage.addEventListener('touchend', function () { dragging = false; });
+    stage.addEventListener('touchend', function (e) {
+        dragging = false;
+        if (e.touches.length < 2) pinching = false;
+        if (e.touches.length === 1) {
+            dragging = true;
+            lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+        }
+    });
 
     stage.addEventListener('wheel', function (e) {
         e.preventDefault();
